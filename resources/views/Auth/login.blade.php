@@ -9,13 +9,12 @@
         <link rel="icon" href="{{ asset('img/favicon.png') }}">
         <title>Booking Meeting Room System</title>
         <!-- Bootstrap 4.0-->
-        <link rel="stylesheet" href="http://ultimatepro-admin-templates.multipurposethemes.com/assets/vendor_components/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{{ asset('vendor/bootstrap/bootstrap.css') }}">
         <!-- Bootstrap extend-->
-        <link rel="stylesheet" href="../css/bootstrap-extend.css">
+        <link rel="stylesheet" href="{{ asset('css/bootstrap-extend.css') }}">
         <!-- Theme style -->
-        <link rel="stylesheet" href="../css/master_style.css">
-        <!-- UltimatePro Admin skins -->
-        <link rel="stylesheet" href="../css/skins/_all-skins.css">
+        <link rel="stylesheet" href="{{ asset('css/master_style.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/skins/_all-skins.css') }}">
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -61,11 +60,11 @@
                                             </div>
                                         </div>
                                         <!-- /.col -->
-                                        <div class="col-6">
+                                        {{-- <div class="col-6">
                                             <div class="fog-pwd text-right">
                                                 <a href="{{ url('/Auth/forgot') }}" class="text-white hover-info"><i class="ion ion-locked"></i> Forgot pwd?</a><br>
                                             </div>
-                                        </div>
+                                        </div> --}}
                                         <!-- /.col -->
                                         <div class="col-12 text-center mt-4">
                                             {{-- <button type="submit" class="btn btn-info btn-block margin-top-10">SIGN IN</button> --}}
@@ -81,10 +80,9 @@
             </div>
         </div>
         <!-- jQuery 3 -->
-        <script src="http://ultimatepro-admin-templates.multipurposethemes.com/assets/vendor_components/jquery-3.3.1/jquery-3.3.1.js"></script>
-        <!-- popper -->
-        <script src="http://ultimatepro-admin-templates.multipurposethemes.com/assets/vendor_components/popper/dist/popper.min.js"></script>
-        <!-- Bootstrap 4.0-->
-        <script src="http://ultimatepro-admin-templates.multipurposethemes.com/assets/vendor_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="{{ asset('vendor/jquery-3.3.1/jquery-3.3.1.js') }}"></script>
+        <script src="{{ asset('vendor/popper/popper.min.js') }}"></script>
+        <script src="{{ asset('vendor/bootstrap/bootstrap.js') }}"></script>
+
     </body>
 </html>
