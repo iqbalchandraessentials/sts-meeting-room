@@ -25,7 +25,7 @@
                     <span class="ti-link font-size-50"></span>
                 </div>
                 <div class="py-30 bg-white text-dark">
-                    <div class="font-size-30">2/<span class="font-size-18">4</span></div>
+                    <div class="font-size-30">3/<span class="font-size-18">4</span></div>
                     <span>Active Menu</span>
                 </div>
             </div>
