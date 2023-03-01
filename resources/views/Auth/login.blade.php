@@ -36,12 +36,14 @@
                                     <div class="mb-4">
                                         <h4 class="text-white">Log In to Your Account</h4>
                                     </div>
+                                    <form method="POST" action="{{ route('login') }}">
+                                        @csrf
                                     <div class="form-group">
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text bg-transparent bt-0 bl-0 br-0 no-radius text-white"><i class="ti-email"></i></span>
                                             </div>
-                                            <input type="text" class="form-control pl-15 bg-transparent bt-0 bl-0 br-0 text-white" placeholder="Email address">
+                                            <input type="text" name="email" class="form-control pl-15 bg-transparent bt-0 bl-0 br-0 text-white" placeholder="Email address">
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -49,7 +51,7 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text  bg-transparent bt-0 bl-0 br-0 text-white"><i class="ti-lock"></i></span>
                                             </div>
-                                            <input type="password" class="form-control pl-15 bg-transparent bt-0 bl-0 br-0 text-white" placeholder="Password">
+                                            <input type="password" name="password" class="form-control pl-15 bg-transparent bt-0 bl-0 br-0 text-white" placeholder="Password">
                                         </div>
                                     </div>
                                     <div class="row">
@@ -68,11 +70,11 @@
                                         <!-- /.col -->
                                         <div class="col-12 text-center mt-4">
                                             {{-- <button type="submit" class="btn btn-info btn-block margin-top-10">SIGN IN</button> --}}
-                                            <button type="submit" class="btn btn-info btn-block margin-top-10" onclick="window.location.href='{{ url('/dashboard')}}'">SIGN IN</button>
+                                            <button type="submit" class="btn btn-info btn-block margin-top-10">SIGN IN</button>
                                         </div>
                                         <!-- /.col -->
                                     </div>
-                                {{-- </form> --}}
+                                </form>
                             </div>
                         </div>
                     </div>

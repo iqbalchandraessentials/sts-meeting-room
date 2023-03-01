@@ -2,7 +2,7 @@
 
 @section('breadcrumb')
     <div class="mr-auto w-p50">
-        <h3 class="page-title border-0">Meeting Room</h3>
+        <h3 class="page-title border-0">Employee Requisition</h3>
     </div>
 @endsection
 
@@ -15,7 +15,7 @@
                 </div>
                 <div class="py-30 bg-white text-dark">
                     <div class="font-size-30">1</div>
-                    <span>Total Room</span>
+                    <span>Total Requisition</span>
                 </div>
             </div>
         </div>
@@ -26,7 +26,7 @@
                 </div>
                 <div class="py-30 bg-white text-dark">
                     <div class="font-size-30">1/<span class="font-size-18">1</span></div>
-                    <span>Active Room</span>
+                    <span>Status Active </span>
                 </div>
             </div>
         </div>
@@ -35,40 +35,50 @@
         <div class="col-12">
             <div class="box">
                 <div class="box-header">
-                    <h4 class="box-title">Meeting Room List</h4>
+                    <h4 class="box-title">List Employee Requisition</h4>
                 </div>
                 <div class="box-body">
                     <div class="table-responsive">
                         <table class="table table-striped dataTables">
                             <thead>
                                 <tr>
-                                    <th class="text-center">#</th>
-                                    <th class="text-left">Name</th>
-                                    <th class="text-center text-nowrap">Capacity</th>
-                                    <th class="text-left">Facilities</th>
-                                    <th class="text-left text-nowrap">Hours Availability</th>
-                                    <th class="text-left text-nowrap">Days Availability </th>
+                                    <th class="text-left">Job Title</th>
+                                    <th class="text-center">Level</th>
+                                    <th class="text-left">Division</th>
+                                    <th class="text-left">Business Unit</th>
+                                    <th class="text-left">Personel Req </th>
                                     <th class="text-center">Status</th>
                                     <th class="text-center">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td class="text-center">1</td>
-                                    <td class="text-left text-nowrap">Large Meeting Room</td>
-                                    <td class="text-right">12</td>
-                                    <td class="text-left">Infocus, Screen, Glass board, Sound system, Pencils and memos, Internet connection.</td>
-                                    <td class="text-left">Full Days</td>
-                                    <td class="text-left">All Days</td>
-                                    <td class="text-center text-success"><span class="btn btn-success btn-block btn-rounded">Active</span></td>
+                                    @foreach ($data as $item)
+                                    <td class="text-left text-capitalize ">{{ $item->job_title }}</td>
+                                    <td class="text-right">{{$item->level}}</td>
+                                    <td class="text-left"> {{$item->div->division}} </td>
+                                    <td class="text-left">{{$item->pt->PT}}</td>
+                                    <td class="text-left">{{$item->personel_req}}</td>
+                                    <td class="text-center text-success">
+                                        @if ($item->state == "NEW")
+                                        <span class="btn btn-success btn-block btn-rounded">
+                                            {{$item->state}}
+                                        </span>
+                                        @elseif ($item->state == "OPEN")
+                                        <span class="btn btn-success btn-block btn-rounded">
+                                            {{$item->state}}
+                                        </span>
+                                        @endif
+                                    </td>
                                     <td class="text-center">
                                         <span data-toggle="modal" data-target="#modal-fill">
-                                            <a href="javascript:void(0);" data-toggle="tooltip" data-placement="bottom" title="View">
+                                            <a href="{{route('requisition.show',$item->id)}} ">
                                                 <i class="ti-eye"></i>
                                             </a>
                                         </span>
                                     </td>
                                 </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -78,11 +88,11 @@
     </div>
 
     {{-- modal here --}}
-    <div class="modal modal-fill fade" data-backdrop="false" id="modal-fill" tabindex="-1" style="z-index: 9999">
-        <div class="modal-dialog modal-lg"">
+    {{-- <div class="modal modal-fill fade" data-backdrop="false" id="modal-fill" tabindex="-1" style="z-index: 9999">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content" style="max-width: 1024px">
                 <div class="modal-header">
-                    {{-- <h5 class="modal-title">Large Meeting Room	</h5> --}}
+                    <h5 class="modal-title">Large Meeting Room	</h5>
                     <button type="button" class="close" style="padding-right: 28px" data-dismiss="modal">
                         <span aria-hidden="true">×</span>
                     </button>
@@ -175,6 +185,6 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 @endsection
 

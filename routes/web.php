@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\RequisitionFormController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,8 +14,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () { return view('Auth.login'); });
+
+Route::get('/', function () {
+    return view('Auth.login');});
+
+
+// Route::middleware(['auth'])->group(function () {
+// });
 Route::get('/Auth/forgot', function () { return view('Auth.forgot'); });
+
+Auth::routes();
+Route::resource('requisition', RequisitionFormController::class);
 
 Route::get('/dashboard', function () { return view('Dashboard.index'); });
 
@@ -24,6 +34,7 @@ Route::get('/meeting-room/details', function () { return view('MeetingRoom.detai
 Route::get('/meeting-room/details/edit', function () { return view('MeetingRoom._edit'); });
 Route::get('/employee', function () { return view('Employee.index'); });
 Route::get('/guest', function () { return view('Guest.index'); });
+
 
 Route::get('/facilities', function () { return view('Facility.facility'); });
 Route::get('/facilities/add-new', function () { return view('Facility._addFacility'); });

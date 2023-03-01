@@ -10,23 +10,26 @@
                     <span>Dashboard</span>
                 </a>
             </li> --}}
-            <li class="header nav-small-cap">MEETING ROOM</li>
-            <li class="treeview {{ Request::segment(1) === 'meeting-room' ? 'active' : '' }}">
+            <li class="header nav-small-cap">Requisition</li>
+            <li class="treeview {{ Request::segment(1) === 'requisition' ? 'active' : '' }}">
                 <a href="#">
                     <i class="ti-blackboard"></i>
-                    <span>Room Resources</span>
+                    <span>Employee Requisition</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-right pull-right"></i>
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li class="{{ Request::segment(1) === 'meeting-room' && Request::segment(2) === 'add-new' ? 'active' : '' }}">
-                        <a href="{{ url('/meeting-room/add-new') }}"><i class="ti-more"></i>Add New</a>
+                    <li class="{{ Request::segment(1) === 'requisition' && Request::segment(2) === 'create' ? 'active' : '' }}">
+                        <a href="{{ route('requisition.create') }}"><i class="ti-more"></i>Add New</a>
                     </li>
-                    <li class="{{ Request::segment(1) === 'meeting-room' && Request::segment(2) === null || Request::segment(2) === 'details' ? 'active' : '' }}">
-                        <a href="{{ url('meeting-room') }}">
-                            <i class="ti-more"></i>List Meeting Room
+                    <li class="{{ Request::segment(1) === 'requisition' && Request::segment(2) === null || Request::segment(2) === '' ? 'active' : '' }}">
+                        <a href="{{ route('requisition.index') }}">
+                            <i class="ti-more"></i>List Employee Requisition
                         </a>
+                        {{-- <a href="{{ url('meeting-room') }}">
+                            <i class="ti-more"></i>List Meeting Room
+                        </a> --}}
                     </li>
                 </ul>
             </li>
